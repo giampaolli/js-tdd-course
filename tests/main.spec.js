@@ -1,6 +1,7 @@
 import chai,{ expect } from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
+import { API_URL } from '../src/config'
 
 chai.use(sinonChai)
 
@@ -60,11 +61,11 @@ describe('Spotify wrapper', () => {
  
         const artists = search('incubus', 'artist');
         expect(fetchedStub).to.have.been
-          .calledWith('https://api.spotify.com/v1/search?q=incubus&type=artist');
+          .calledWith(`${API_URL}/search?q=incubus&type=artist`);
 
         const albums = search('incubus', 'album');
         expect(fetchedStub).to.have.been
-          .calledWith('https://api.spotify.com/v1/search?q=incubus&type=album')
+          .calledWith(`${API_URL}/search?q=incubus&type=album`)
 
       });
 
@@ -72,7 +73,7 @@ describe('Spotify wrapper', () => {
  
         const artistsAndAlbus = search('incubus', ['artist', 'album']);
         expect(fetchedStub).to.have.been
-          .calledWith('https://api.spotify.com/v1/search?q=incubus&type=artist,album');
+          .calledWith(`${API_URL}/search?q=incubus&type=artist,album`);
 
       });
 
@@ -93,11 +94,11 @@ describe('Spotify wrapper', () => {
     
       const artists = searchArtists('incubus');
       expect(fetchedStub).to.have.been
-        .calledWith('https://api.spotify.com/v1/search?q=incubus&type=artist');
+        .calledWith(`${API_URL}/search?q=incubus&type=artist`);
 
       const artists2 = searchArtists('Muse');
       expect(fetchedStub).to.have.been
-        .calledWith('https://api.spotify.com/v1/search?q=incubus&type=artist');
+        .calledWith(`${API_URL}/search?q=incubus&type=artist`);
 
       });
 
@@ -116,11 +117,11 @@ describe('Spotify wrapper', () => {
     
       const albums = searchAlbums('incubus');
       expect(fetchedStub).to.have.been
-        .calledWith('https://api.spotify.com/v1/search?q=incubus&type=album');
+        .calledWith(`${API_URL}/search?q=incubus&type=album`);
 
       const albums2 = searchAlbums('Muse');
       expect(fetchedStub).to.have.been
-        .calledWith('https://api.spotify.com/v1/search?q=incubus&type=album');
+        .calledWith(`${API_URL}/search?q=incubus&type=album`);
 
       });
 
@@ -139,11 +140,11 @@ describe('Spotify wrapper', () => {
     
       const tracks = searchTracks('incubus');
       expect(fetchedStub).to.have.been
-        .calledWith('https://api.spotify.com/v1/search?q=incubus&type=track');
+        .calledWith(`${API_URL}/search?q=incubus&type=track`);
 
       const tracks2 = searchTracks('Muse');
       expect(fetchedStub).to.have.been
-        .calledWith('https://api.spotify.com/v1/search?q=incubus&type=track');
+        .calledWith(`${API_URL}/search?q=incubus&type=track`);
 
       });
 
@@ -162,11 +163,11 @@ describe('Spotify wrapper', () => {
     
       const playlists = searchPlaylists('incubus');
       expect(fetchedStub).to.have.been
-        .calledWith('https://api.spotify.com/v1/search?q=incubus&type=playlist');
+        .calledWith(`${API_URL}/search?q=incubus&type=playlist`);
 
       const playlists2 = searchPlaylists('Muse');
       expect(fetchedStub).to.have.been
-        .calledWith('https://api.spotify.com/v1/search?q=incubus&type=playlist');
+        .calledWith(`${API_URL}/search?q=incubus&type=playlist`);
 
       });
 
