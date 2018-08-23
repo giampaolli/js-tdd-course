@@ -7,7 +7,7 @@ chai.use(sinonChai)
 
 global.fetch = require('node-fetch')
 
-import { search, searchArtists, searchAlbums, searchTracks, searchPlaylists } from '../src/main'
+import { search, searchArtists, searchAlbums, searchTracks, searchPlaylists } from '../src/search'
 
 describe('Spotify wrapper', () => {
 
